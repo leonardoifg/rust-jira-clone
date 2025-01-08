@@ -1,5 +1,7 @@
+mod db;
 mod models;
 
 fn main() {
-    println!("Welcome To My-Jira!");
+    let aux = models::Status::InProgress;
+    println!("Welcome To My-Jira: {aux}!");
 }
