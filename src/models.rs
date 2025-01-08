@@ -31,6 +31,13 @@ pub struct Epic {
     pub stories: Vec<u32>,
 }
 
+impl Display for Epic {
+    fn fmt(&self, f: &mut Formatter<'_>) -> Result {
+        let str = format!("{} - {} (Epic)", self.name, self.status);
+        write!(f, "{str}")
+    }
+}
+
 impl Epic {
     pub fn new(name: String, description: String) -> Self {
         Self {
@@ -49,6 +56,13 @@ pub struct Story {
     pub status: Status,
 }
 
+impl Display for Story {
+    fn fmt(&self, f: &mut Formatter<'_>) -> Result {
+        let str = format!("{} - {} (Story)", self.name, self.status);
+        write!(f, "{str}")
+    }
+}
+
 impl Story {
     pub fn new(name: String, description: String) -> Self {
         Self {
@@ -59,7 +73,6 @@ impl Story {
     }
 }
 
-#[derive(Debug)]
 pub struct DBState {
     pub last_item_id: u32,
     pub epics: HashMap<u32, Epic>,
